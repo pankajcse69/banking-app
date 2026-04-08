@@ -79,8 +79,8 @@ body {
 /* Input Styling */
 input {
     width: 100%;
-    padding: 12px 15px;
-    margin-bottom: 12px;
+    padding: 14px 15px;
+    margin-bottom: 16px;
     border: 2px solid #e0e0e0;
     border-radius: 6px;
     font-size: 14px;
@@ -96,7 +96,9 @@ input:focus {
 /* Button Styling */
 button {
     width: 100%;
-    padding: 12px 20px;
+    padding: 14px 20px;
+    margin-top: 8px;
+    margin-bottom: 20px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
@@ -121,10 +123,13 @@ button:active:not(:disabled) {
 .btn-group {
     display: flex;
     gap: 12px;
+    margin-bottom: 20px;
 }
 
 .btn-group button {
     flex: 1;
+    margin-top: 8px;
+    margin-bottom: 0;
 }
 
 .btn-green {
@@ -145,15 +150,17 @@ button:active:not(:disabled) {
 
 /* Result Box */
 .result-box {
-    margin-top: 18px;
-    padding: 16px;
+    margin-top: 12px;
+    padding: 18px;
     background: #f8f9fa;
     border-radius: 8px;
     font-size: 14px;
-    min-height: 50px;
+    line-height: 1.6;
+    min-height: auto;
     border-left: 4px solid #667eea;
-    display: flex;
-    align-items: center;
+    display: block;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     animation: fadeIn 0.3s ease;
 }
 

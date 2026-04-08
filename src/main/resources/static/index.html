@@ -13,22 +13,30 @@
 
     <div class="dashboard-grid">
         <div class="card">
-            <h3>All Accounts</h3>
+            <h3>➕ Create Account</h3>
+            <input type="text" id="new-holder-name" placeholder="Account Holder Name">
+            <input type="number" id="new-initial-balance" placeholder="Initial Balance (₹)" min="0" step="0.01">
+            <button id="btn-create" class="btn-green">Create Account</button>
+            <div id="create-result" class="result-box"></div>
+        </div>
+
+        <div class="card">
+            <h3>📊 All Accounts</h3>
             <button id="btn-get-all">Load All Accounts</button>
             <div id="all-accounts-result" class="result-box"></div>
         </div>
 
         <div class="card">
-            <h3>Find Account</h3>
+            <h3>🔍 Find Account</h3>
             <input type="number" id="find-id" placeholder="Enter Account ID">
             <button id="btn-find">Search</button>
             <div id="find-result" class="result-box"></div>
         </div>
 
         <div class="card">
-            <h3>Transactions</h3>
+            <h3>💰 Transactions</h3>
             <input type="number" id="trans-id" placeholder="Account ID">
-            <input type="number" id="trans-amount" placeholder="Amount (₹)">
+            <input type="number" id="trans-amount" placeholder="Amount (₹)" step="0.01">
             <div class="btn-group">
                 <button id="btn-deposit" class="btn-green">Deposit</button>
                 <button id="btn-withdraw" class="btn-red">Withdraw</button>
@@ -37,7 +45,7 @@
         </div>
 
         <div class="card">
-            <h3>Delete Account</h3>
+            <h3>🗑️ Delete Account</h3>
             <input type="number" id="del-id" placeholder="Enter Account ID">
             <button id="btn-delete" class="btn-red">Delete</button>
             <div id="del-result" class="result-box"></div>

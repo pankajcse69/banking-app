@@ -10,6 +10,29 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // ==========================================
+    // 0. Create Account
+    // ==========================================
+    document.getElementById("btn-create").addEventListener("click", async () => {
+        const holderName = document.getElementById("new-holder-name").value.trim();
+        const initialBalance = document.getElementById("new-initial-balance").value.trim();
+        
+        if (!holderName || !initialBalance || parseFloat(initialBalance) < 0) {
+            displayResult("create-result", "⚠️ Please enter valid Account Holder Name and Initial Balance (≥ 0)!", true);
+            return;
+        }
+
+        displayResult("create-result", "⏳ Creating account...", false);
+        try {
+            const newAccount = await API.create(holderName, initialBalance);
+            displayResult("create-result", `✅ <strong>Account Created Successfully!</strong><br>Account ID: <strong>${newAccount.id}</strong><br>Holder: <strong>${newAccount.accountHolderName}</strong><br>Balance: <strong>₹${newAccount.balance.toFixed(2)}</strong>`);
+            document.getElementById("new-holder-name").value = '';
+            document.getElementById("new-initial-balance").value = '';
+        } catch (error) {
+            displayResult("create-result", `❌ Account creation failed. Please check the input.`, true);
+        }
+    });
+
+    // ==========================================
     // 1. Get All Accounts
     // ==========================================
     document.getElementById("btn-get-all").addEventListener("click", async () => {
@@ -22,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             let htmlList = "<ul>";
             accounts.forEach((acc, index) => {
-                htmlList += `<li><strong>#${index + 1}</strong> | ID: <strong>${acc.id}</strong> | Balance: <strong>₹${acc.balance.toFixed(2)}</strong></li>`;
+                htmlList += `<li><strong>#${index + 1}</strong> | ID: <strong>${acc.id}</strong> | Name: <strong>${acc.accountHolderName}</strong> | Balance: <strong>₹${acc.balance.toFixed(2)}</strong></li>`;
             });
             htmlList += "</ul>";
             displayResult("all-accounts-result", `✅ Found <strong>${accounts.length}</strong> account(s):<br>` + htmlList);

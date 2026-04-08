@@ -1,5 +1,18 @@
 const BASE_URL = 'http://localhost:8080/api/accounts';
 const API = {
+    create: async (accountHolderName, initialBalance) => {
+        const response = await fetch(`${BASE_URL}`,{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                accountHolderName: accountHolderName,
+                balance: parseFloat(initialBalance)
+            })
+        });
+        if (!response.ok) throw new Error('Account creation failed');
+        return response.json();
+    },
+
     getAll: async () => {
         const response = await fetch(`${BASE_URL}/getAllAccounts`);
         if (!response.ok) throw new Error('Failed to fetch accounts');
