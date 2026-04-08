@@ -1,0 +1,29 @@
+# ========================
+# DATABASE & SECRETS
+# ========================
+src/main/resources/application.properties
+*.env
+
+# ========================
+# MAVEN BUILD FILES
+# ========================
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+
+# ========================
+# IDE & EDITOR SETTINGS
+# ========================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ========================
+# WINDOWS OS FILES
+# ========================
+Thumbs.db
+desktop.ini
